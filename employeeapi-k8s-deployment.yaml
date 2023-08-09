@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-k8s-deployment
+  labels:
+    app: employee-k8s
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: employee-k8s
+  template: 
+    metadata:
+      labels:
+        app: employee-k8s
+    spec:
+      containers:
+      - name: employee-k8s
+        image: preetiupreti/employeeapi
+        ports:
+        - containerPort: 9090
